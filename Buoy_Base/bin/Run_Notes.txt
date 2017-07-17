@@ -1,0 +1,66 @@
+RUN NOTES:
+
+--> We need to run Controller program twice, one for the Base Station
+and one for the Buoy.
+
+--> While running Controller, we need to pass command line arguments as follows:
+
+args[0] = whether to run base station(-bs) or buoy(-bu)
+args[1] = portToSendTo
+args[2] = portToReceiveOn
+args[3] {Optional} = IP address of the base station or buoy. If this is not provided, the program will take
+the local host as the ip address. 
+
+
+First we run the Controller with command line arguments indicating to run Basestation.
+Before requesting anything from Basestation, we now run the Controller again with command line argument indicating to run Buoy.
+
+Now in Basestation window, we can either request Image or sensor data or close the communication (By pressing respective choices).
+Now in Buoy window, based on what is requested, we do the following.
+
+If Image requested: Buoy will be prompted to give full file path including .jpg extension.
+If Sensor data requested: Buoy will be prompted to give sensor data which is in Integer.  
+
+The sensor data or Image is then transferred to the base station.
+The base station can then press 3 to close the communication.
+
+Run with the following commands :
+
+1. java Controller -bs 63001 63000
+
+2. java Controller -bu 63000 63001
+
+NOTE: Note that the sending port of base station will be the receiving port of buoy and vice-versa.
+
+Example of Image Transfer
+-----------------------------------------------------
+At Base Station: 
+	Enter -> 1 (request image)
+	
+At Buoy:
+	Enter -> *full file path including jpg extension*
+		e.g. "C:\Users\anilp\OneDrive\Documents\minion.jpg"
+
+At Base Station: 
+		Image Received
+		Enter -> 3
+		Done Requesting
+
+At Buoy:
+		Done Serving Basestation.
+		
+Example of Sensor Data Transfer
+-----------------------------------------------------
+At Base Station: 
+	Enter -> 2 (request Sensor data)
+	
+At Buoy:
+	Enter -> 8 (or Any Integer)
+
+At Base Station: 
+		Received Sensor Data: 8
+		Enter -> 3
+		Done Requesting
+
+At Buoy:
+		Done Serving Basestation.
