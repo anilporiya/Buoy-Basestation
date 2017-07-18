@@ -22,7 +22,7 @@ import javax.imageio.ImageIO;
  * it reorders and combines the packets to successfully receive the sensor data
  * or the image.
  * 
- * @author Anil Poriya arp6763
+ * @author Anil Poriya
  *
  */
 public class Basestation {
