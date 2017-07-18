@@ -22,7 +22,7 @@ import javax.imageio.ImageIO;
  * For Image --> Prompt user for the entire file path of image including
  * extension
  * 
- * @author Anil Poriya arp6763
+ * @author Anil Poriya
  *
  */
 public class Buoy {
